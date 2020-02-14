@@ -1,0 +1,9 @@
+{:paths ["src"]
+ :deps {clj-kondo {:mvn/version "2020.01.27"}
+
+        org.clojure/tools.deps.alpha {:mvn/version "0.8.666"}
+        org.slf4j/slf4j-nop {:mvn/version "1.7.25"}
+
+        org.clojure/tools.cli {:mvn/version "0.4.2"}
+
+        dorothy/dorothy {:mvn/version "0.0.7"}}}

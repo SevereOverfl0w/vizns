@@ -1,0 +1,45 @@
+= Vizns
+
+Visualize the relationship between namespaces and their dependencies.
+
+== Usage
+
+Add vizns as an alias in your ~/.clojure/deps.edn so it's available in any project:
+
+[source,clojure]
+----
+{:aliases
+ {:user/vizns
+  {:deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
+                            :sha "TBD"}}
+   :main-opts ["-m" "clojure.tools.deps.graph"]}}}
+----
+
+Run in your project
+
+[source,bash]
+.Produce a deps-graph.dot file
+----
+$ clj -A:user/vizns
+----
+
+TIP: You can upload the .dot file to https://edotor.net/ to view without having graphviz installed.
+
+[source,bash]
+.Produce a deps-graph image directly
+----
+$ clj -A:user/vizns -o deps-graph.png -f png
+$ clj -A:user/vizns -o deps-graph.svg -f svg
+----
+
+[source,bash]
+.View graph without saving
+----
+$ clj -A:user/vizns --show
+----
+
+== Example
+
+(Example sourced from link:https://gitlab.com/camelot-project/camelot[camelot])
+
+image::camelot-example.svg[]
