@@ -51,7 +51,7 @@
 
 (defn- make-classpath
   [lib-map]
-  (map io/file (tools.deps/make-classpath-roots lib-map [] nil)))
+  (map io/file (mapcat :paths (vals lib-map))))
 
 (defn- jar-contains?
   [jar file]
