@@ -38,6 +38,14 @@ $ clj -A:user/vizns -o deps-graph.svg -f svg
 $ clj -A:user/vizns --show
 ----
 
+=== Output information
+
+Dependencies can be colored 3 colors:
+
+Green:: You're doing the right thing, carry on.
+Red:: You're using this dependency, but you're relying on it being brought in transitively.  This means you're relying on an implementation detail of a library.  You should add this dependency to your deps.edn
+Grey:: You're not using this dependency (NOTE: There's a lot of false positives here, especially around java)
+
 == Example
 
 (Example sourced from link:https://gitlab.com/camelot-project/camelot[camelot])
