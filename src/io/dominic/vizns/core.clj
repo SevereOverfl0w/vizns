@@ -150,7 +150,7 @@
                           :id :show?
                           :parse-fn #(new Boolean %)
                           :default false]
-                         [nil "--format FORMAT" "One of dot,png,svg"
+                         ["-f" "--format FORMAT" "One of dot,png,svg"
                           :default "dot"
                           :validate [#{"dot" "png" "svg"}]]
                          ["-o" "--output OUTPUT" "Where to output the graph (not compatible with --show).  Use - for STDOUT"
