@@ -117,8 +117,7 @@
                 :fillcolor (if (contains? used-deps lib)
                              :green
                              :grey)})])
-          (keys (dissoc (:deps deps-map)
-                        'org.clojure/clojure)))
+          (keys (:deps deps-map)))
         (map
           (fn [lib]
             [(keyword lib)
@@ -130,7 +129,7 @@
           (set/intersection
             (set/difference
               (set (keys lib-map))
-              (set (keys (dissoc (:deps deps-map) 'org.clojure/clojure))))
+              (set (keys (:deps deps-map))))
             used-deps))
         (map
           (fn [[ns lib]]
