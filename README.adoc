@@ -11,7 +11,7 @@ Add vizns as an alias in your ~/.clojure/deps.edn so it's available in any proje
 {:aliases
  {:user/vizns
   {:deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
-                            :sha "9ae062aca156ec59f7ceaafd55960abbd37b1ce5"}}
+                            :sha "de1c9bbe89915b17cf7a02194f50c338effccb06"}}
    :main-opts ["-m" "io.dominic.vizns.core"]}}}
 ----
 
