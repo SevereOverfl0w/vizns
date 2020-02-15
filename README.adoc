@@ -11,11 +11,17 @@ Add vizns as an alias in your ~/.clojure/deps.edn so it's available in any proje
 {:aliases
  {:user/vizns
   {:deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
-                            :sha "de1c9bbe89915b17cf7a02194f50c338effccb06"}}
+                            :sha "fb2391a4af24246ac4e46f3a573970ba5b7c92de"}}
    :main-opts ["-m" "io.dominic.vizns.core"]}}}
 ----
 
 Run in your project
+
+[source,bash]
+.Produce a navigable folder of SVGs
+----
+$ clj -A:user/vizns navigate
+----
 
 [source,bash]
 .Produce a deps-graph.dot file
@@ -28,14 +34,14 @@ TIP: You can upload the .dot file to https://edotor.net/ to view without having 
 [source,bash]
 .Produce a deps-graph image directly
 ----
-$ clj -A:user/vizns -o deps-graph.png -f png
-$ clj -A:user/vizns -o deps-graph.svg -f svg
+$ clj -A:user/vizns single -o deps-graph.png -f png
+$ clj -A:user/vizns single -o deps-graph.svg -f svg
 ----
 
 [source,bash]
 .View graph without saving
 ----
-$ clj -A:user/vizns --show
+$ clj -A:user/vizns single --show
 ----
 
 === Output information
@@ -49,5 +55,7 @@ Grey:: You're not using this dependency (NOTE: There's a lot of false positives 
 == Example
 
 (Example sourced from link:https://gitlab.com/camelot-project/camelot[camelot])
+
+link:https://dominic.io/vizns/camelot/root.svg[Navigation of Camelot] (Click nodes to filter)
 
 image::camelot-example.svg[]
