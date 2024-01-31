@@ -159,6 +159,9 @@
           [(keyword ns) (keyword lib)])
         relations))))
 
+(defn- existing-parent-files [parent-dir paths]
+  (filter #(.exists (io/file parent-dir %)) paths))
+
 (defn- single
   [common-opts single-opts]
   (let [{:keys [deps-file]} common-opts
@@ -167,8 +170,7 @@
         lib-map (lib-map deps-map deps-file)
         relations (relations
                     lib-map
-                    (map #(io/file (.getParentFile deps-file) %)
-                         (:paths deps-map)))
+                    (existing-parent-files (.getParentFile deps-file) (:paths deps-map)))
         lib-info (make-lib-info relations lib-map deps-map)
         lib-nodes (zipmap (keys lib-map)
                           (for [[lib resolved-dep+] lib-info]
@@ -210,8 +212,7 @@
         lib-map (lib-map deps-map deps-file)
         relations (relations
                     lib-map
-                    (map #(io/file (.getParentFile deps-file) %)
-                         (:paths deps-map)))
+                    (existing-parent-files (.getParentFile deps-file) (:paths deps-map)))
         lib-info (make-lib-info relations lib-map deps-map)
         lib-nodes (zipmap (keys lib-map)
                           (for [[lib resolved-dep+] lib-info]
